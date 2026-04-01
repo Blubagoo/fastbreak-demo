@@ -1,0 +1,45 @@
+Prerequisites to starting:
+- I did some stylistic review on fastbreak brands
+ - "I wanted to make sure that I was styling the app in a similar way that matches(somewhat) their brand."
+- set up vercel account
+ - "This would have already been setup during the first week of work"
+- looked for verel mcp server
+ - "Same reason as before, it would have already been set up for use" 
+- set up the github repo
+ - "Same reason again."
+
+Once started: (11:44am)
+ - pulled in acceptance criteria, formatting into a ticket
+  - "I needed claude to get acclimated with what I was trying to accomplish."
+ - Set up the mcp servers necessary
+  - "I missed a couple for prereq's"
+ - Created a plan of action -> approve plan
+  - "Essential step to ai assisted development. Plan -> review -> implement -> review -> commit"
+  - "A few things flagged early on like the database schema being its own table, with a foreign key which made sense for the many:many relationship."
+ - Grabbed tailwind compatible theme file from the browser(https://www.fastbreak.ai/)
+  - "Easy way for me to grab chunk of the theme without having to worry about it."
+ - configured supabase/google/vercel accounts while simultaneously executing plan with claude
+  - "Self explanatory"
+ - installed playwright mcp server for validation loop once phases were complete.
+  - "Missed another mcp server that was helpful for ai assisted coding"
+ - installed font file to match brand
+  - "Such a good looking font. I wanted to bring that in."
+ - Worked through bugs and manual testing
+  - "Claude quite literally never can just accomplish what you set out. AI assisted development is awesome but offers a false sense of security. You have to be quite rigorous in manual testing, validation loops, etc."
+ - Brought for the challenge pdf(raw text) so that we could compare with our end product
+  - "Claude gets lost in the sauce alot. So i wanted to bring back the original challend requirements to ensure that i was passing its criteria and not some internal model of what claude THINKS is the criteria.
+ - Begin the review process with claude
+  - "Again, never trust that claude got it right. Manual review code, test changes yourself, the whole nine yards. AI assisted development is only as powerful as the developer testing it is."
+ - Checked git history to make sure nothing sensative was added.
+  - "I thought i took care of this early on but wanted to make sure there wasnt an 'oopsy' in the commits"
+ - Review claude issues found with "reviewer" agent.
+  - Several things were flagged against what claude said was previously good to go( validation on my previous comment lol )
+ - address concerns found
+ - front end changes/manual review
+  - "lots of small things that i manually didnt like after it was completed. Manual date entry being one of them. I added a date picker cause who wants to type a date in?"
+ - final code review
+  - "Look through the code one more time."
+ - ReadmeText created so i could get out my thoughts. 
+ - Claude formatted this doc for the actual readme so that we could have a pleasing explanation of my actions rather than this doc. Either way you have both if you prefer this one. 
+
+Ended at 2:53
