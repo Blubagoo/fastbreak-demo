@@ -8,7 +8,7 @@ Prerequisites to starting:
 - set up the github repo
  - "Same reason again."
 
-Once started: (11:44am)
+Once started:
  - pulled in acceptance criteria, formatting into a ticket
   - "I needed claude to get acclimated with what I was trying to accomplish."
  - Set up the mcp servers necessary
@@ -42,4 +42,3 @@ Once started: (11:44am)
  - ReadmeText created so i could get out my thoughts. 
  - Claude formatted this doc for the actual readme so that we could have a pleasing explanation of my actions rather than this doc. Either way you have both if you prefer this one. 
 
-Ended at 2:53
