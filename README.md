@@ -8,7 +8,7 @@ Prerequisites to starting:
 - set up the github repo
  - "Same reason again."
 
-Once started:
+Once started: (11:44am)
  - pulled in acceptance criteria, formatting into a ticket
   - "I needed claude to get acclimated with what I was trying to accomplish."
  - Set up the mcp servers necessary
@@ -42,3 +42,8 @@ Once started:
  - ReadmeText created so i could get out my thoughts. 
  - Claude formatted this doc for the actual readme so that we could have a pleasing explanation of my actions rather than this doc. Either way you have both if you prefer this one. 
 
+Ended at 2:53
+
+Found some issues with auth login redirect/callback route. Fixing those now to ensure site is available for testing. also realized the google button wasnt google themed which is obviously not great. So i wanted to make these changes regardless of taking a few extra minutes to get it right. 
+
+Final time 3:16pm
