@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -13,6 +14,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Field, FieldLabel, FieldError } from "@/components/ui/field";
 
 export function SignupForm() {
+  const router = useRouter();
   const form = useForm<SignupInput>({
     resolver: zodResolver(signupSchema),
     defaultValues: { email: "", password: "", confirmPassword: "" },
@@ -24,6 +26,7 @@ export function SignupForm() {
     const result = await signup(data);
     if (result.success) {
       toast.success("Account created successfully");
+      router.push("/login");
     } else {
       toast.error(result.error ?? "Signup failed");
     }

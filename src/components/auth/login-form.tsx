@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -13,6 +14,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Field, FieldLabel, FieldError } from "@/components/ui/field";
 
 export function LoginForm() {
+  const router = useRouter();
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "" },
@@ -24,6 +26,8 @@ export function LoginForm() {
     const result = await login(data);
     if (result.success) {
       toast.success("Logged in successfully");
+      router.push("/");
+      router.refresh();
     } else {
       toast.error(result.error ?? "Login failed");
     }
