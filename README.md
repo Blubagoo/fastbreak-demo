@@ -40,7 +40,7 @@ Once started: (11:44am)
  - final code review
   - "Look through the code one more time."
  - ReadmeText created so i could get out my thoughts. 
- - Claude formatted this doc for the actual readme so that we could have a pleasing explanation of my actions rather than this doc. Either way you have both if you prefer this one. 
+ - Claude formatted this doc for the actual readme so that we could have a pleasing explanation of my actions rather than this doc. Either way you have both if you prefer this one. ( I Chose against doing this in the end because it couldnt just format what i said, it had to add all kinds of flavor and you requested not to do this.)
 
 Ended at 2:53
 
