@@ -31,7 +31,6 @@ Build a full-stack Sports Event Management application where users can create, v
 - [ ] Google OAuth sign-in
 - [ ] Protected routes — redirect to `/login` if not authenticated
 - [ ] Logout functionality
-- [ ] Session persistence across page reloads
 
 ### 2. Dashboard (Home Page — Post-Login)
 
@@ -190,11 +189,6 @@ src/
 
 - [ ] Working Vercel deployment with public URL
 - [ ] GitHub repo with clean commit history
-- [ ] **README.md** — hand-written, not AI-generated. Include:
-  - Thought process
-  - Architecture decisions
-  - Trade-offs considered
-  - Setup instructions
 
 ---
 
