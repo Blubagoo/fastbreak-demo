@@ -148,44 +148,8 @@
   background-clip: text;
 }
 
-/* ─── Shadcn light theme ───────────────────────────────────────────── */
+/* ─── Shadcn dark theme (default) ──────────────────────────────────── */
 :root {
-  --background: #f8f9fa;
-  --foreground: #000a11;
-  --card: #ffffff;
-  --card-foreground: #000a11;
-  --popover: #ffffff;
-  --popover-foreground: #000a11;
-  --primary: #011627;
-  --primary-foreground: #ffffff;
-  --secondary: #e9ecef;
-  --secondary-foreground: #011627;
-  --muted: #e9ecef;
-  --muted-foreground: #666666;
-  --accent: #e9ecef;
-  --accent-foreground: #011627;
-  --destructive: #f62a66;
-  --border: #dadada;
-  --input: #dadada;
-  --ring: #17f2e3;
-  --chart-1: #17f2e3;
-  --chart-2: #49cbe8;
-  --chart-3: #9f52f2;
-  --chart-4: #f62a66;
-  --chart-5: #80ed99;
-  --radius: 11px;
-  --sidebar: #f8f9fa;
-  --sidebar-foreground: #000a11;
-  --sidebar-primary: #011627;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e9ecef;
-  --sidebar-accent-foreground: #011627;
-  --sidebar-border: #dadada;
-  --sidebar-ring: #17f2e3;
-}
-
-/* ─── Shadcn dark theme (brand) ────────────────────────────────────── */
-.dark {
   --background: #000a11;
   --foreground: #ffffff;
   --card: #011627;
@@ -209,6 +173,7 @@
   --chart-3: #9f52f2;
   --chart-4: #f62a66;
   --chart-5: #80ed99;
+  --radius: 11px;
   --sidebar: #011627;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #17f2e3;
@@ -216,6 +181,41 @@
   --sidebar-accent: #222222;
   --sidebar-accent-foreground: #dadada;
   --sidebar-border: #353535;
+  --sidebar-ring: #17f2e3;
+}
+
+/* ─── Shadcn light theme (opt-in) ─────────────────────────────────── */
+.light {
+  --background: #f8f9fa;
+  --foreground: #000a11;
+  --card: #ffffff;
+  --card-foreground: #000a11;
+  --popover: #ffffff;
+  --popover-foreground: #000a11;
+  --primary: #011627;
+  --primary-foreground: #ffffff;
+  --secondary: #e9ecef;
+  --secondary-foreground: #011627;
+  --muted: #e9ecef;
+  --muted-foreground: #666666;
+  --accent: #e9ecef;
+  --accent-foreground: #011627;
+  --destructive: #f62a66;
+  --border: #dadada;
+  --input: #dadada;
+  --ring: #17f2e3;
+  --chart-1: #17f2e3;
+  --chart-2: #49cbe8;
+  --chart-3: #9f52f2;
+  --chart-4: #f62a66;
+  --chart-5: #80ed99;
+  --sidebar: #f8f9fa;
+  --sidebar-foreground: #000a11;
+  --sidebar-primary: #011627;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9ecef;
+  --sidebar-accent-foreground: #011627;
+  --sidebar-border: #dadada;
   --sidebar-ring: #17f2e3;
 }
 

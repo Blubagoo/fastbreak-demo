@@ -9,6 +9,7 @@ import { EventWithVenues } from "@/types";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { DateTimePicker } from "@/components/ui/date-time-picker";
 import {
   Select,
   SelectTrigger,
@@ -24,16 +25,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { PlusIcon, Trash2Icon, Loader2Icon } from "lucide-react";
 import { toast } from "sonner";
-
-const SPORT_OPTIONS = [
-  "Basketball",
-  "Soccer",
-  "Tennis",
-  "Baseball",
-  "Football",
-  "Hockey",
-  "Other",
-] as const;
+import { SPORT_OPTIONS } from "@/lib/constants";
 
 export function EventForm({
   initialData,
@@ -143,7 +135,11 @@ export function EventForm({
         render={({ field }) => (
           <Field data-invalid={!!errors.date_time || undefined}>
             <FieldLabel htmlFor="date_time">Date &amp; Time</FieldLabel>
-            <Input id="date_time" type="datetime-local" {...field} />
+            <DateTimePicker
+              id="date_time"
+              value={field.value}
+              onChange={field.onChange}
+            />
             <FieldError>{errors.date_time?.message}</FieldError>
           </Field>
         )}

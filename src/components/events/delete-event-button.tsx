@@ -48,7 +48,7 @@ export function DeleteEventButton({
 
   return (
     <>
-      <Button variant="destructive" size="sm" onClick={() => setOpen(true)}>
+      <Button aria-label={`Delete event: ${eventName}`} variant="destructive" size="sm" onClick={() => setOpen(true)}>
         <Trash2Icon data-icon="inline-start" />
         Delete
       </Button>

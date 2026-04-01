@@ -7,13 +7,6 @@ import { PlusIcon } from "lucide-react";
 export function EventList({ events }: { events: EventWithVenues[] }) {
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-end">
-        <Button render={<Link href="/events/new" />}>
-          <PlusIcon data-icon="inline-start" />
-          New Event
-        </Button>
-      </div>
-
       {events.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-xl border border-dashed p-12 text-center">
           <p className="text-muted-foreground">

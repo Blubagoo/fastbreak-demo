@@ -3,22 +3,31 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { safeAction, createSafeAction } from "@/lib/safe-action";
-import { eventSchema } from "@/lib/schemas";
+import { eventSchema, EventInput } from "@/lib/schemas";
 import { EventWithVenues } from "@/types";
 
 export async function getEvents(search?: string, sport?: string) {
   return safeAction(async () => {
     const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      return { success: false as const, error: "Not authenticated" };
+    }
+
     let query = supabase
       .from("events")
       .select("*, venues(*)")
+      .eq("user_id", user.id)
       .order("date_time", { ascending: true });
 
-    if (search) {
-      query = query.ilike("name", `%${search}%`);
+    if (search && search.trim().length > 0) {
+      const sanitized = search.trim().substring(0, 100);
+      query = query.ilike("name", `%${sanitized}%`);
     }
-    if (sport) {
-      query = query.eq("sport_type", sport);
+    if (sport && sport.trim().length > 0) {
+      query = query.eq("sport_type", sport.trim());
     }
 
     const { data, error } = await query;
@@ -32,10 +41,18 @@ export async function getEvents(search?: string, sport?: string) {
 export async function getEventById(id: string) {
   return safeAction(async () => {
     const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      return { success: false as const, error: "Not authenticated" };
+    }
+
     const { data, error } = await supabase
       .from("events")
       .select("*, venues(*)")
       .eq("id", id)
+      .eq("user_id", user.id)
       .single();
 
     if (error) {
@@ -89,18 +106,25 @@ export const createEvent = createSafeAction(eventSchema, async (data) => {
   return getEventById(event.id);
 });
 
-export async function updateEvent(id: string, data: unknown) {
-  const parsed = eventSchema.safeParse(data);
-  if (!parsed.success) {
-    return {
-      success: false as const,
-      error: "Validation failed",
-      fieldErrors: parsed.error.flatten().fieldErrors as Record<string, string[]>,
-    };
-  }
-
+export async function updateEvent(id: string, data: EventInput) {
   return safeAction(async () => {
+    const parsed = eventSchema.safeParse(data);
+    if (!parsed.success) {
+      return {
+        success: false as const,
+        error: "Validation failed",
+        fieldErrors: parsed.error.flatten().fieldErrors as Record<string, string[]>,
+      };
+    }
+
     const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      return { success: false as const, error: "Not authenticated" };
+    }
+
     const input = parsed.data;
 
     const { error: eventError } = await supabase
@@ -111,7 +135,8 @@ export async function updateEvent(id: string, data: unknown) {
         date_time: input.date_time,
         description: input.description || null,
       })
-      .eq("id", id);
+      .eq("id", id)
+      .eq("user_id", user.id);
 
     if (eventError) {
       return { success: false as const, error: eventError.message };
@@ -148,7 +173,18 @@ export async function updateEvent(id: string, data: unknown) {
 export async function deleteEvent(id: string) {
   return safeAction(async () => {
     const supabase = await createClient();
-    const { error } = await supabase.from("events").delete().eq("id", id);
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      return { success: false as const, error: "Not authenticated" };
+    }
+
+    const { error } = await supabase
+      .from("events")
+      .delete()
+      .eq("id", id)
+      .eq("user_id", user.id);
 
     if (error) {
       return { success: false as const, error: error.message };

@@ -8,17 +8,9 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import { SPORT_OPTIONS } from "@/lib/constants";
 
-const SPORT_OPTIONS = [
-  "All",
-  "Basketball",
-  "Soccer",
-  "Tennis",
-  "Baseball",
-  "Football",
-  "Hockey",
-  "Other",
-] as const;
+const FILTER_OPTIONS = ["All", ...SPORT_OPTIONS] as const;
 
 export function SportFilter() {
   const router = useRouter();
@@ -41,7 +33,7 @@ export function SportFilter() {
         <SelectValue placeholder="Filter by sport" />
       </SelectTrigger>
       <SelectContent>
-        {SPORT_OPTIONS.map((sport) => (
+        {FILTER_OPTIONS.map((sport) => (
           <SelectItem key={sport} value={sport}>
             {sport}
           </SelectItem>

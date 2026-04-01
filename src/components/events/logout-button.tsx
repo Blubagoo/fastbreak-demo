@@ -12,6 +12,7 @@ export function LogoutButton() {
   async function handleLogout() {
     const result = await logout();
     if (result.success) {
+      router.refresh();
       router.push("/login");
     } else {
       toast.error(result.error ?? "Failed to logout");
